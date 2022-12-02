@@ -13,10 +13,9 @@ public class Book {
      
      private String author;
 
-     private int newId;
 
      public Book(){
-        this.newId = ++id;
+
      }
 
     public Book(String name, String genre, String author) {
@@ -26,11 +25,11 @@ public class Book {
     }
 
     public int getId() {
-        return newId;
+        return id;
     }
 
     public void setId(int id) {
-        this.id = newId;
+        this.id = id;
     }
 
     public String getName() {

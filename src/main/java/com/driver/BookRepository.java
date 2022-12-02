@@ -9,10 +9,12 @@ import java.util.List;
 @Repository
 public class BookRepository {
     List<Book> books = new ArrayList<>();
-
+    static int id = 0;
 
     //Create a new Book
     public Book addBookToDB(Book book){
+        id++;
+        book.setId(id);
         books.add(book);
         return book;
     }
