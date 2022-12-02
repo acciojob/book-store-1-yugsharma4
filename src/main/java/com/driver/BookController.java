@@ -59,16 +59,16 @@ public class BookController {
     // pass id as path variable
     // getBookById()
     @GetMapping("/get-book-by-id/{id}")
-    public ResponseEntity<Book> getBookById(@PathVariable int id){
-        return new ResponseEntity(bookService.getBookById(id),HttpStatus.ACCEPTED);
+    public ResponseEntity<Book> getBookById(@PathVariable String id){
+        return new ResponseEntity(bookService.getBookById(Integer.parseInt(id)),HttpStatus.ACCEPTED);
     }
 
     // delete request /delete-book-by-id/{id}
     // pass id as path variable
     // deleteBookById()
     @DeleteMapping("/delete-book-by-id/{id}")
-    public ResponseEntity<String> deleteAllBooks(@PathVariable int id){
-        return new ResponseEntity(bookService.deleteBookByIdFromDB(id),HttpStatus.OK);
+    public ResponseEntity<String> deleteBookById(@PathVariable String id){
+        return new ResponseEntity(bookService.deleteBookByIdFromDB(Integer.parseInt(id)),HttpStatus.OK);
     }
 
     // get request /get-all-books
