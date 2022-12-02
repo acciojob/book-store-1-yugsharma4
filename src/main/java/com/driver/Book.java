@@ -1,8 +1,11 @@
 package com.driver;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 public class Book {
-    
-     private int id;
+
+     private static int id;
 
      private String name;
 
@@ -10,8 +13,10 @@ public class Book {
      
      private String author;
 
-     public Book(){
+     private int newId;
 
+     public Book(){
+        this.newId = ++id;
      }
 
     public Book(String name, String genre, String author) {
@@ -21,11 +26,11 @@ public class Book {
     }
 
     public int getId() {
-        return id;
+        return newId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = newId;
     }
 
     public String getName() {
