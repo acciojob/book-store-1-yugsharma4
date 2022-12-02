@@ -19,9 +19,12 @@ public class BookRepository {
 
     //get a book
     public Book getBookByIdFromDB(int bookId){
-        for(Book book : books){
-            if(book.getId() == bookId) return book;
+        if(!books.isEmpty()){
+            for(Book book : books){
+                if(book.getId() == bookId) return book;
+            }
         }
+
         return null;
     }
 
@@ -35,33 +38,42 @@ public class BookRepository {
     }
 
     public String deleteBookByIdFromDB(int bookId){
-        for(Book book: books){
-            if(book.getId() == bookId) {
-                books.remove(book);
-                return "Book has been deleted!!!";
+        if(!books.isEmpty()){
+            for(Book book: books){
+                if(book.getId() == bookId) {
+                    books.remove(book);
+                    return "Book has been deleted!!!";
+                }
             }
         }
+
         return "Book does not found!!!";
     }
 
     public List<String> getBooksByAuthorFromDB(String authorName){
         List<String> authBooks = new ArrayList<>();
-        for(Book book: books){
-            if(book.getAuthor().equals(authorName)){
-                authBooks.add(book.getName());
+        if(!books.isEmpty()){
+            for(Book book: books){
+                if(book.getAuthor().equals(authorName)){
+                    authBooks.add(book.getName());
+                }
             }
         }
+
         return authBooks;
     }
 
 
     public List<String> getBooksByGenreFromDB(String genreName){
         List<String> genBooks = new ArrayList<>();
-        for(Book book: books){
-            if(book.getGenre().equals(genreName)){
-                genBooks.add(book.getName());
+        if(!books.isEmpty()){
+            for(Book book: books){
+                if(book.getGenre().equals(genreName)){
+                    genBooks.add(book.getName());
+                }
             }
         }
+
         return genBooks;
     }
 
